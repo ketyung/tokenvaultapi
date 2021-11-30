@@ -2,7 +2,7 @@ import * as web3 from '@solana/web3.js';
 // import spl token package, yarn add or npm install it if you don't have 
 import * as splToken from "@solana/spl-token";
 import { getRpcUrl , getPayer} from './utils';
-let util= require('util');
+//let util= require('util');
 
 export const toLogIt = true ;
 
