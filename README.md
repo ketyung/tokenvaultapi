@@ -6,7 +6,7 @@ I think there isn't a need to save it as the return of the account after it's be
 and the creation of token account and setting the authority also don't take too long
 
 To run 
-npm run serve
+npm run server
 
 
 You may need to do 
