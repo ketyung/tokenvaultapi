@@ -90,9 +90,9 @@ export async function createTokenVaultAndSetAuthority(nftMintStr : String) : Pro
      //new util.TextEncoder().encode(nftMintStr)
 
      let pdaAccount = await web3.PublicKey.findProgramAddress(
-      [new util.TextEncoder().encode("xxxx.x")], programId);
+      [new web3.PublicKey(nftMintStr).toBytes()], programId);
 
-     console.log("The PDA :", pdaAccount[0]);
+     console.log("The PDA :", pdaAccount[0].toBase58());
 
      // create the set authority instruction
      // to change the authority to the PDA
@@ -105,7 +105,9 @@ export async function createTokenVaultAndSetAuthority(nftMintStr : String) : Pro
 
     
     // send the tx 
-    web3.sendAndConfirmTransaction( connection, allTxs, [payer]);
+    let res = await web3.sendAndConfirmTransaction( connection, allTxs, [payer]);
+    
+    console.log("sent tx res::", res);
     
     // continue here to save the token mint and 
     // token account to a DB
