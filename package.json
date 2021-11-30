@@ -23,6 +23,7 @@
   "dependencies": {
     "@solana/spl-token": "^0.1.8",
     "@solana/web3.js": "^1.31.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mz": "^2.7.0",
     "yaml": "^1.10.2"

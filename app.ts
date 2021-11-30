@@ -2,8 +2,10 @@ import express, { Request, Response, NextFunction } from 'express';
 import { getPayer } from './utils/utils';
 import {createTokenVaultAndSetAuthority, toLogIt} from './utils/funcs';
 import {Keypair} from '@solana/web3.js';
+const cors = require('cors');
 
 const app = express();
+app.use(cors());
 const port = 3008;
 
 interface Wallet {
