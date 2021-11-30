@@ -7,4 +7,4 @@ and the creation of token account and setting the authority also don't take too 
 
 So the usage is just a GET API call as follows:
 
-http://localhost:3000/token?token=EbXx7pFwi525kLafpjB619mqwQWTLGgPYZ4HxDwzZff7
+http://localhost:3008/token?token=EbXx7pFwi525kLafpjB619mqwQWTLGgPYZ4HxDwzZff7
