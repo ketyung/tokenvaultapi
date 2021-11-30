@@ -1,6 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express';
 import { getPayer } from './utils/utils';
-import {createTokenVaultAndSetAuthority, TokenVaultPair} from './utils/funcs';
+import {createTokenVaultAndSetAuthority, toLogIt} from './utils/funcs';
 import {Keypair} from '@solana/web3.js';
 
 const app = express();
@@ -33,7 +33,7 @@ const createResp =  async (request : Request, response : Response, _next : NextF
 
      let tk = request.query.token;
 
-     console.log("tk::", tk);
+     if (toLogIt) console.log("tk::", tk);
 
      const res = await createTokenVaultAndSetAuthority(tk.toString());
 

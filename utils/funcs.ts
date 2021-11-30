@@ -4,12 +4,16 @@ import * as splToken from "@solana/spl-token";
 import { getRpcUrl , getPayer} from './utils';
 let util= require('util');
 
+export const toLogIt = true ;
+
 // you'll need the associated token program ID
 const SPL_ASSOCIATED_TOKEN_ACCOUNT_PROGRAM_ID: web3.PublicKey = new web3.PublicKey(
         'ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL',);
 
 // the program id of my Rust smart contract
 export const programId : web3.PublicKey = new web3.PublicKey("5E4MATRbVPrHsHKWyYUu1HvLS5dhhajuETdSCeuqDf64");
+
+
 
 
 let connection : web3.Connection; 
@@ -59,8 +63,8 @@ export async function createTokenVaultAndSetAuthority(nftMintStr : String) : Pro
 
     let nftVaultAccount = await findAssociatedTokenAddress(walletKey, nftMint );
 
-       
-    console.log("The associated token account is :", nftVaultAccount.toBase58());
+      
+    if (toLogIt) console.log("The associated token account is :", nftVaultAccount.toBase58());
 
     const allTxs = new web3.Transaction();
         
@@ -79,7 +83,7 @@ export async function createTokenVaultAndSetAuthority(nftMintStr : String) : Pro
      }
      else {
 
-        console.log("Token Account already exists!");
+        if (toLogIt) console.log("Token Account already exists!");
 
         let t : TokenVaultPair = ({ mint : nftMint.toBase58(), account : nftVaultAccount.toBase58()});        
         return t; 
@@ -92,7 +96,7 @@ export async function createTokenVaultAndSetAuthority(nftMintStr : String) : Pro
      let pdaAccount = await web3.PublicKey.findProgramAddress(
       [new web3.PublicKey(nftMintStr).toBytes()], programId);
 
-     console.log("The PDA :", pdaAccount[0].toBase58());
+      if (toLogIt) console.log("The PDA :", pdaAccount[0].toBase58());
 
      // create the set authority instruction
      // to change the authority to the PDA
@@ -107,8 +111,8 @@ export async function createTokenVaultAndSetAuthority(nftMintStr : String) : Pro
     // send the tx 
     let res = await web3.sendAndConfirmTransaction( connection, allTxs, [payer]);
     
-    console.log("sent tx res::", res);
-    
+    if (toLogIt) console.log("sent tx res::", res);
+
     // continue here to save the token mint and 
     // token account to a DB
 
