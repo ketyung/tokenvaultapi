@@ -4,7 +4,7 @@ import {createTokenVaultAndSetAuthority, toLogIt} from './utils/funcs';
 import {Keypair} from '@solana/web3.js';
 
 const app = express();
-const port = 3000;
+const port = 3008;
 
 interface Wallet {
 
