@@ -1,16 +1,16 @@
 # tokenvaultapi
 
-The token vault api for DC staking project by using solana web3 js file wallet to create a token account
-for a token mint, this is done in expressjs but it doesn't save to mongodb or any db
-I think there isn't a need to save it as the return of the account after it's been created is just fast
-and the creation of token account and setting the authority also don't take too long
+Just a simple token vault api example that was built during the DC staking project by using solana web3 js file wallet to create a token account for a token mint, this is done in expressjs, it accepts a token mint, checks if a token account exits, if not it will create an associated token account for the token and set the authority of the token account to a PDA (Program Derived Address) in Solana. 
+
 
 To run <br/>
-npm run server
+<p>npm run server</p>
 
 
 You may need to do<br/> 
-npm install 
+
+<p>npm install</p>
+
 <br/>to install all the packages first
 
 

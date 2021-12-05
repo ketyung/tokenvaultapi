@@ -113,14 +113,7 @@ export async function createTokenVaultAndSetAuthority(nftMintStr : String) : Pro
     
     if (toLogIt) console.log("sent tx res::", res);
 
-    // continue here to save the token mint and 
-    // token account to a DB
-
-    // and return the JSON containing the NFT mint and the NFT vault account pair
-    
-    // And also program the part to return the pair 
-    // by API GET call
-
+  
     let t : TokenVaultPair = ({ mint : nftMint.toBase58(), account : nftVaultAccount.toBase58()});        
     return t; 
 
